@@ -38,6 +38,9 @@ stocks = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'FB']
 # Fetch OHLC data for the specified stocks
 data = yf.download(stocks, start='2023-01-01', end='2024-01-01')
 
+this one if for assignment for investoo
+
+
 # Display the first few rows of the data
 print(data.head())
 ```
