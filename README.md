@@ -1,48 +1,40 @@
-# Technical-Analysis-of-Financial-Markets-Ingestion-Cleaning-Transformation
+## Technical Analysis of Financial Markets - Data Processing Pipeline
 
-steps i will have to go through
-To start with this assignment, you can follow these steps:
+This repository contains scripts and data files related to the ingestion, cleaning, transformation, and visualization of OHLC (Open-High-Low-Close) financial market data. The pipeline includes the following steps:
 
-1. **Understand Requirements**: Read and understand the provided scenario and tasks thoroughly. This will help you grasp the objectives and scope of the assignment.
+1. **Data Ingestion:**
+   - Developed a script capable of ingesting OHLC data feeds from various sources and formats.
+   - Validated data integrity, checked for missing values, outliers, and ensured data type consistency.
+   - Standardized the data format to a common structure using pandas DataFrame.
 
-2. **Choose a Dataset**: Since the assignment mentions using OHLC data feeds, you can use financial data from sources like Yahoo Finance, Alpha Vantage, or any other similar platform. For simplicity, you can start with the `yfinance` library to fetch OHLC data for multiple stocks. Choose 5-10 equities as a sample dataset.
+2. **Data Cleaning:**
+   - Identified and handled missing values through imputation or removal techniques.
+   - Detected and corrected outliers using statistical methods or domain knowledge.
+   - Addressed inconsistencies in timestamps or date formats.
 
-3. **Setup Environment**: Set up your Python environment with necessary libraries such as pandas, numpy, and any other libraries mentioned in the tasks.
+3. **Data Transformation:**
+   - Calculated technical indicators based on OHLC data, such as moving averages, Bollinger Bands, and Relative Strength Index.
+   - Applied feature engineering techniques to create new features relevant for trading strategy, including volatility measures and price patterns.
+   - Resampled the data based on desired frequencies, e.g., from daily to hourly.
 
-4. **Data Ingestion**: Write a Python script to ingest OHLC data from the chosen data source (e.g., Yahoo Finance). You can use the `yfinance` library to fetch the data. Ensure that your script can handle different formats like CSV or JSON.
+4. **Data Validation:**
+   - Implemented unit tests to ensure the pipeline's functionality and data integrity.
+   - Monitored the pipeline for errors and data quality issues.
 
-5. **Data Cleaning**: Develop functions to handle missing values, outliers, and inconsistencies in timestamps or date formats. Use pandas and numpy functionalities for data manipulation and cleaning.
+5. **Data Storage:**
+   - Utilized a simple database (e.g., SQLite, MySQL) to store the processed data.
+   - Partitioned the data by year, month, or other relevant categories for efficient querying.
+   - Optimized the data format for fast retrieval and analysis, such as using a columnar format.
 
-6. **Data Transformation**: Write functions to calculate technical indicators (e.g., moving averages, RSI), apply feature engineering techniques, and resample the data as per the desired frequencies.
+### Visualization on Tableau
+- The processed data has been visualized on Tableau for further analysis and exploration.
+- [Tableau Visualization](https://public.tableau.com/shared/K4XGHBHSB?:display_count=n&:origin=viz_share_link)
 
-7. **Data Validation**: Implement unit tests using libraries like pytest to validate the functionality of your pipeline and ensure data integrity. Monitor the pipeline for errors and data quality issues.
-
-8. **Data Storage**: Use a simple database like SQLite or MySQL to store the processed data. Partition the data by relevant categories for efficient querying. You can use pandas' built-in functionalities to export data to databases.
-
-9. **Bonus Tasks**: If time permits, implement bonus tasks such as data compression techniques, integration with visualization tools, and developing data quality checks and alerts.
-
-10. **Documentation and Testing**: Document your code thoroughly, including comments and docstrings. Test your pipeline with sample data to ensure it functions as expected.
-
-11. **Example Output**: Provide example output showcasing cleaned and transformed data for a specific period as requested in the deliverables.
-
-Remember to break down the tasks into smaller, manageable steps and tackle them one at a time. You can start with data ingestion and progressively move towards data storage and bonus tasks. Don't forget to refer to documentation and online resources as needed.
-
-Here's a simple example to get you started with fetching data using `yfinance`:
-
-```python
-import yfinance as yf
-
-# Define a list of stock symbols
-stocks = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'FB']
-
-# Fetch OHLC data for the specified stocks
-data = yf.download(stocks, start='2023-01-01', end='2024-01-01')
-
-this one if for assignment for investoo
+![Dashboard 1 (1)](https://github.com/Annkkitaaa/Technical-Analysis-of-Financial-Markets-Ingestion-Cleaning-Transformation/assets/100662026/dd2b6c85-ceab-4052-be4c-6e8f99a27075)
 
 
-# Display the first few rows of the data
-print(data.head())
-```
+### Files Included
+- `data_exploration_and_cleaning.ipynb`: Jupyter Notebook containing the code for data exploration and cleaning.
+- `before_analysis.csv`: Raw data file before any processing.
+- `cleaned_output.csv`: Processed data file after ingestion, cleaning, and transformation.
 
-This script will fetch OHLC data for the specified stocks from Yahoo Finance for the year 2023. You can expand upon this to develop your data pipeline.
